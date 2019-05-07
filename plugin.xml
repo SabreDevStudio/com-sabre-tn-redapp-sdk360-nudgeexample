@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.sabre.edge.redapp.contactdetails.provider">
+      <contactDetails
+            company="NudgeExample.contactDetails1"
+            contactName="NudgeExample.contactDetails1"
+            email="NudgeExample.contactDetails1"
+            phoneNumber="NudgeExample.contactDetails1">
+      </contactDetails>
+   </extension>
+   <extension
+         point="com.sabre.edge.cf.redapp">
+   </extension>
+   <extension
+         point="com.sabre.edge.dynamo.flow.flowextpoint.registry">
+      <flowExtensionPoint
+            callbackService="com.sabre.tn.redapp.sdk360.nudgeservices.NudgeInitService:execute"
+            extensionPointId="nudgeInitCommand"
+            flowId="dynamo.nudge">
+      </flowExtensionPoint>
+      <flowExtensionPoint
+            callbackService="com.sabre.tn.redapp.sdk360.nudgeservices.NudgeActionService:execute"
+            extensionPointId="nudgeActionCommand"
+            flowId="dynamo.nudge">
+      </flowExtensionPoint>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+          <initializer class="com.sabre.tn.redapp.sdk360.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.sabre.edge.cf.core.preferences.RedAppsSettings"
+            class="com.sabre.tn.redapp.sdk360.preferences.PreferencePage"
+            id="NudgeExampeSettings"
+            name="Nudge Settings">
+      </page>
+   </extension>
+
+</plugin>
